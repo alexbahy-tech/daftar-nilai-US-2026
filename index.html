@@ -48,6 +48,36 @@
     .wrap{max-width:1200px;margin:-2rem auto 0;padding:0 1.5rem 3rem;position:relative;z-index:5}
     .crd{background:var(--card);border-radius:var(--rl);box-shadow:0 10px 40px rgba(14,165,233,.12);border:1px solid var(--bdr);margin-bottom:1.5rem}
 
+    /* BACK BUTTON */
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.6rem 1.2rem;
+      border-radius:var(--rm);
+      background:rgba(255,255,255,.1);
+      border:1.5px solid rgba(255,255,255,.15);
+      color:var(--tsoft);
+      font-family:inherit;
+      font-size:.85rem;
+      font-weight:600;
+      text-decoration:none;
+      transition:all .25s;
+      backdrop-filter:blur(8px);
+      margin-bottom:1rem;
+    }
+    .back-btn svg{
+      width:18px;
+      height:18px;
+      flex-shrink:0;
+    }
+    .back-btn:hover{
+      background:rgba(14,165,233,.15);
+      border-color:rgba(14,165,233,.3);
+      color:#fff;
+      transform:translateX(-3px);
+    }
+
     /* SELECT */
     .selc{padding:1.8rem 2rem}
     .slbl{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--teal);margin-bottom:.7rem}
@@ -182,10 +212,15 @@
         <div><h1>SMK Negeri 1 Maluku Tengah</h1><p>Sistem Manajemen Nilai Digital</p><span class="byr">Tahun Ajaran 2025/2026</span></div>
       </div>
     </header>
-    <a href="https://alexbahy-tech.github.io/smartkurikulumsmkn1mt/" class="back-btn" style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>Kembali</a>
+
     <div class="wrap">
-    </div>
-    <!-- Setup warning -->
+      <!-- Back button now inside .wrap, properly positioned -->
+      <a href="https://alexbahy-tech.github.io/smartkurikulumsmkn1mt/" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+        Kembali
+      </a>
+
+      <!-- Setup warning -->
       <div class="setup-banner" id="setupBanner">
         <h4>⚠️ Setup Belum Lengkap</h4>
         <p>Fitur simpan nilai belum aktif. Paste URL deployment Apps Script ke variabel <code>GAS_URL</code> di baris pertama tag &lt;script&gt;. Lihat panduan di file <code>Code.gs</code>.</p>
