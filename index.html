@@ -59,21 +59,71 @@
     .pc{display:flex;align-items:center;gap:.8rem}.pb{flex:1;height:8px;background:var(--surf);border-radius:8px;overflow:hidden}.pf{height:100%;border-radius:8px;transition:width .8s cubic-bezier(.16,1,.3,1)}.fok{background:linear-gradient(90deg,var(--ok),#34d399)}.fw{background:linear-gradient(90deg,#f59e0b,#fbbf24)}.fe{background:linear-gradient(90deg,var(--err),#f87171)}
     #statsP,#nilaiP,#sklP{display:none}#nilaiP.act,#statsP.act,#sklP.act{display:block}
     .setup-banner{background:linear-gradient(135deg,#fef3c7,#fff7ed);border:2px solid #f59e0b;border-radius:var(--rl);padding:1.5rem 2rem;margin-bottom:1.5rem;display:none}.setup-banner.show{display:block}.setup-banner h4{color:#92400e;font-size:.95rem;margin-bottom:.5rem}.setup-banner p{color:#78716c;font-size:.85rem;line-height:1.6}.setup-banner code{background:#fde68a;padding:.15rem .4rem;border-radius:4px;font-size:.8rem;font-weight:600}
-    .skl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin-top:1rem}
-    .skl-card{background:var(--card);border:2px solid var(--bdr);border-radius:var(--rm);padding:1.2rem;display:flex;align-items:center;gap:1rem;transition:all .25s}.skl-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,165,233,.12);transform:translateY(-2px)}
-    .skl-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
-    .skl-det{flex:1;text-align:left}.skl-nm{font-weight:700;font-size:.9rem;margin-bottom:.2rem}.skl-mt{font-size:.75rem;color:var(--mu)}
-    .skl-dl{padding:.5rem 1rem;border-radius:var(--rs);background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;font-size:.75rem;font-weight:700;border:none;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:inherit}.skl-dl:hover{transform:scale(1.05);box-shadow:0 3px 12px rgba(139,92,246,.3)}
+    .skl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1rem;margin-top:1rem}
+    .skl-card{background:var(--card);border:2px solid var(--bdr);border-radius:var(--rm);padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;transition:all .25s;overflow:hidden}.skl-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,165,233,.12);transform:translateY(-2px)}
+    .skl-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0}
+    .skl-det{flex:1;min-width:0;text-align:left}.skl-nm{font-weight:700;font-size:.85rem;margin-bottom:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.skl-mt{font-size:.72rem;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .skl-actions{display:flex;gap:.4rem;flex-shrink:0}
+    .skl-dl{padding:.45rem .7rem;border-radius:var(--rs);background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;font-size:.7rem;font-weight:700;border:none;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:inherit}.skl-dl:hover{transform:scale(1.05);box-shadow:0 3px 12px rgba(139,92,246,.3)}.skl-dl.skl-dl-alt{background:linear-gradient(135deg,var(--teal),#0284c7)}
     .skl-cb{width:18px;height:18px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
     .skl-select-all{display:flex;align-items:center;gap:.5rem;padding:1rem 2rem;border-bottom:1px solid var(--bdr);font-size:.85rem;font-weight:600;color:var(--tx2)}
     .skl-info{padding:2rem;text-align:center}.skl-info p{color:var(--tx2);font-size:.9rem;margin-bottom:1rem;line-height:1.7}
-    @media(max-width:768px){.hi{flex-direction:column;text-align:center;gap:1.2rem}.hero h1{font-size:1.5rem}.hero{padding:2rem 0 3.5rem}.selc{padding:1.3rem}.thead{padding:1rem 1.2rem}th{padding:.8rem .7rem;font-size:.72rem}td{padding:.7rem;font-size:.82rem}.abtn{padding:.8rem 1.5rem;font-size:.85rem}.sg{grid-template-columns:1fr}.stab{padding:.45rem .65rem;font-size:.72rem}.subj-grid{gap:.35rem}.skl-grid{grid-template-columns:1fr}.mtabs{flex-wrap:wrap}}
-    @media(max-width:480px){.hlogo{width:70px;height:70px}.hero h1{font-size:1.25rem}.lcard{padding:2rem 1.5rem}.ltit{font-size:1.3rem}.mtabs{flex-direction:column}.stab{padding:.4rem .55rem;font-size:.68rem}.stab .snum{width:16px;height:16px;font-size:.58rem}}
+
+    /* SKL Preview Modal */
+    .skl-modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(10,22,40,.7);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s}.skl-modal-overlay.show{opacity:1;visibility:visible}
+    .skl-modal{background:var(--card);border-radius:var(--rl);width:94%;max-width:700px;max-height:85vh;overflow-y:auto;box-shadow:0 25px 80px rgba(0,0,0,.4);animation:modalUp .4s cubic-bezier(.16,1,.3,1) both;position:relative}
+    @keyframes modalUp{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .skl-modal-head{padding:1.5rem 2rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--card);z-index:2;border-radius:var(--rl) var(--rl) 0 0}
+    .skl-modal-head h3{font-family:'DM Serif Display',serif;font-size:1.2rem}
+    .skl-modal-close{width:36px;height:36px;border-radius:50%;border:2px solid var(--bdr);background:var(--surf);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:1.1rem;color:var(--tx2)}.skl-modal-close:hover{background:var(--err);color:#fff;border-color:var(--err)}
+    .skl-modal-body{padding:2rem}
+    .skl-modal-foot{padding:1rem 2rem 1.5rem;border-top:1px solid var(--bdr);display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .skl-preview{font-family:'Times New Roman',serif;font-size:13px;line-height:1.6;color:#000;max-width:600px;margin:0 auto}
+    .skl-preview .skl-kop{display:flex;align-items:center;gap:14px;margin-bottom:4px;padding:0 8px}
+    .skl-preview .skl-kop-logo{width:64px;height:72px;object-fit:contain;flex-shrink:0}
+    .skl-preview .skl-kop-text{flex:1;text-align:center}
+    .skl-preview .skl-kop-text h4{font-size:16px;font-weight:700;margin:2px 0}
+    .skl-preview .skl-kop-text p{font-size:11px;margin:1px 0}
+    .skl-preview .skl-header{text-align:center;margin-bottom:.5rem}
+    .skl-preview .skl-header h4{font-size:16px;font-weight:700;margin:2px 0}
+    .skl-preview .skl-header p{font-size:11px;margin:1px 0}
+    .skl-preview .skl-divider{border:none;border-top:3px double #000;margin:8px 0 16px}
+    .skl-preview .skl-title{text-align:center;font-weight:700;text-decoration:underline;font-size:14px;margin:16px 0 4px}
+    .skl-preview .skl-nomor{text-align:center;font-size:12px;margin-bottom:16px}
+    .skl-preview .skl-field{display:flex;margin:4px 0;padding-left:20px}.skl-preview .skl-field .skl-flbl{min-width:200px}.skl-preview .skl-field .skl-fsep{min-width:16px}.skl-preview .skl-field .skl-fval{flex:1}
+    .skl-preview table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12px}.skl-preview table th,.skl-preview table td{border:1px solid #000;padding:4px 8px}.skl-preview table th{background:#f0f0f0;font-weight:700;text-align:center}.skl-preview table td:first-child{text-align:center;width:40px}.skl-preview table td:last-child{text-align:center;width:100px}
+    .skl-preview .skl-sign{text-align:right;margin-top:24px;padding-right:20px}.skl-preview .skl-sign p{margin:2px 0}
+    .skl-preview .skl-sign .skl-sign-name{font-weight:700;text-decoration:underline;margin-top:60px}
+    .skl-preview .skl-lulus{text-align:center;font-size:18px;font-weight:700;margin:12px 0}
+
+    .skl-batch-progress{display:none;padding:1.5rem 2rem;text-align:center}
+    .skl-batch-progress.show{display:block}
+    .skl-batch-bar{height:10px;background:var(--surf);border-radius:10px;overflow:hidden;margin:1rem 0}.skl-batch-fill{height:100%;background:linear-gradient(90deg,#8b5cf6,#7c3aed);border-radius:10px;transition:width .3s}
+    .skl-batch-text{font-size:.85rem;color:var(--tx2);font-weight:600}
+
+    @media(max-width:768px){.hi{flex-direction:column;text-align:center;gap:1.2rem}.hero h1{font-size:1.5rem}.hero{padding:2rem 0 3.5rem}.selc{padding:1.3rem}.thead{padding:1rem 1.2rem}th{padding:.8rem .7rem;font-size:.72rem}td{padding:.7rem;font-size:.82rem}.abtn{padding:.8rem 1.5rem;font-size:.85rem}.sg{grid-template-columns:1fr}.stab{padding:.45rem .65rem;font-size:.72rem}.subj-grid{gap:.35rem}.skl-grid{grid-template-columns:1fr}.mtabs{flex-wrap:wrap}.skl-modal{width:98%;max-height:90vh}.skl-preview .skl-kop{gap:10px}.skl-preview .skl-kop-logo{width:50px;height:56px}.skl-preview .skl-field .skl-flbl{min-width:160px}}
+    @media(max-width:480px){.hlogo{width:70px;height:70px}.hero h1{font-size:1.25rem}.lcard{padding:2rem 1.5rem}.ltit{font-size:1.3rem}.mtabs{flex-direction:column}.stab{padding:.4rem .55rem;font-size:.68rem}.stab .snum{width:16px;height:16px;font-size:.58rem}.skl-card{flex-wrap:wrap;gap:.6rem}.skl-actions{width:100%;justify-content:flex-end}.skl-preview .skl-field .skl-flbl{min-width:140px}}
     ::-webkit-scrollbar{height:6px;width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:10px}
   </style>
 </head>
 <body>
   <div class="toast" id="toast"></div>
+
+  <!-- SKL Preview Modal -->
+  <div class="skl-modal-overlay" id="sklModal">
+    <div class="skl-modal">
+      <div class="skl-modal-head">
+        <h3>📜 Preview SKL</h3>
+        <button class="skl-modal-close" onclick="closeSklModal()">&times;</button>
+      </div>
+      <div class="skl-modal-body" id="sklModalBody"></div>
+      <div class="skl-modal-foot">
+        <button class="abtn bskl" id="sklDownloadBtn" onclick="downloadCurrentSKL()">📥 Download .docx</button>
+        <button class="abtn brs show" onclick="closeSklModal()">✖ Tutup</button>
+      </div>
+    </div>
+  </div>
+
   <div class="lov" id="loginOv"><div class="lbg"></div><div class="lcard">
     <img src="https://iili.io/qd9rF1V.png" alt="Logo" class="llogo">
     <h2 class="ltit">SMK Negeri 1 Maluku Tengah</h2><p class="lsub">Sistem Manajemen Nilai Digital</p>
@@ -82,7 +132,7 @@
   </div></div>
 
   <div class="app" id="app">
-    <header class="hero"><div class="hi"><img src="https://iili.io/qd9rF1V.png" alt="Logo" class="hlogo"><div><h1>SMK Negeri 1 Maluku Tengah</h1><p>Sistem Manajemen Nilai Digital</p><span class="byr">Tahun Ajaran 2025/2026</span></div></div></header>
+    <header class="hero"><div class="hi"><img src="https://iili.io/qd9rF1V.png" alt="Logo" class="hlogo"><div><h1>SMK Negeri 1 Maluku Tengah</h1><p>Sistem Manajemen Nilai Digital</p><span class="byr">Tahun Ajaran 2026/2026</span></div></div></header>
     <div class="wrap">
       <a href="https://alexbahy-tech.github.io/smartkurikulumsmkn1mt/" class="back-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>Kembali</a>
       <div class="setup-banner" id="setupBanner"><h4>⚠️ Setup Belum Lengkap</h4><p>Fitur simpan nilai belum aktif. Paste URL deployment Apps Script ke variabel <code>GAS_URL</code>.</p></div>
@@ -100,12 +150,22 @@
           <div class="spw" id="sp1"><div class="sp"></div></div>
           <div class="tscr"><table><thead><tr><th>#</th><th>Nama Siswa</th><th>Tempat/Tgl Lahir</th><th>NIS</th><th>NISN</th><th>Program</th><th>Nilai</th></tr></thead><tbody id="tbody"><tr><td colspan="7"><div class="empty"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342"/></svg><p>Pilih Program Keahlian dan Mata Pelajaran</p></div></td></tr></tbody></table></div>
         </div>
-        <div class="actions"><button class="abtn bsv" id="svB" onclick="doSave()">💾 Simpan Nilai</button><button class="abtn brs" id="rsB" onclick="doReset()">🔄 Reset</button><a class="abtn bpr" href="https://sites.google.com/guru.smk.belajar.id/pbmsmkn1malteng/home/data-siswa-dan-skl" target="_blank">🖨️ Cetak SKL</a></div>
+        <div class="actions">
+          <button class="abtn bsv" id="svB" onclick="doSave()">💾 Simpan Nilai</button>
+          <button class="abtn brs" id="rsB" onclick="doReset()">🔄 Reset</button>
+        </div>
       </div>
       <div id="statsP"><div class="spw" id="sp2"><div class="sp"></div></div><div id="stC"></div></div>
-      <div id="sklP"><div class="spw" id="sp3"><div class="sp"></div></div><div id="sklC"><div class="crd"><div class="skl-info"><p>Pilih <b>Program Keahlian</b> di atas, lalu generate Surat Keterangan Lulus per siswa atau seluruh siswa sekaligus.<br>SKL dibuat dalam format <b>.docx (Word)</b> dengan data nilai real-time dan tanggal hari ini.</p></div></div></div></div>
+      <div id="sklP">
+        <div class="skl-batch-progress" id="sklBatchProgress">
+          <div class="skl-batch-text" id="sklBatchText">Generating SKL...</div>
+          <div class="skl-batch-bar"><div class="skl-batch-fill" id="sklBatchFill" style="width:0%"></div></div>
+        </div>
+        <div class="spw" id="sp3"><div class="sp"></div></div>
+        <div id="sklC"><div class="crd"><div class="skl-info"><p>Pilih <b>Program Keahlian</b> di atas, lalu generate Surat Keterangan Lulus per siswa atau seluruh siswa sekaligus.<br>SKL dibuat dalam format <b>.docx (Word)</b> dengan data nilai real-time dan tanggal hari ini.</p></div></div></div>
+      </div>
     </div>
-    <footer class="footer">&copy; 2025 SMK Negeri 1 Maluku Tengah</footer>
+    <footer class="footer">&copy; 2026 SMK Negeri 1 Maluku Tengah</footer>
   </div>
 
 <script src="https://unpkg.com/docx@9.5.1/build/index.umd.js"></script>
@@ -133,7 +193,7 @@ var SUBS=[
 ];
 var SL={};for(var i=0;i<SUBS.length;i++)SL[SUBS[i].k]=SUBS[i].l;
 var RNG={AKL:{s:2,e:20},PMS:{s:21,e:38},MPLB:{s:39,e:62},TJKT:{s:63,e:90},TK:{s:91,e:122},ULP:{s:123,e:141}};
-var curSub='pendAgama',curMode='nilai',editMode=false,hasChanges=false,curStu=[],curSco=[],sklData=[],logoBytes=null;
+var curSub='pendAgama',curMode='nilai',editMode=false,hasChanges=false,curStu=[],curSco=[],sklData=[],logoBytes=null,currentSklIndex=-1;
 var BULAN=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 
 function $(id){return document.getElementById(id)}
@@ -148,7 +208,7 @@ var _cbc=0;function gviz(range){return new Promise(function(ok,no){var nm='_gc'+
 
 function doLogin(){if($('lpw').value===PW){$('loginOv').classList.add('hid');$('app').classList.add('vis')}else{$('lerr').classList.add('show');$('lpw').value='';setTimeout(function(){$('lerr').classList.remove('show')},2500)}}
 
-function loadLogoBase64(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);c.toBlob(function(blob){var r=new FileReader();r.onload=function(){logoBytes=new Uint8Array(r.result)};r.readAsArrayBuffer(blob)},'image/png')};img.src='https://iili.io/qd9rF1V.png'}
+function loadLogoBase64(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);c.toBlob(function(blob){var r=new FileReader();r.onload=function(){logoBytes=new Uint8Array(r.result)};r.readAsArrayBuffer(blob)},'image/png')};img.onerror=function(){console.warn('Logo gagal dimuat, SKL akan dibuat tanpa logo')};img.src='https://iili.io/qdPnChb.png'}
 
 function init(){
   if(!hasAPI())$('setupBanner').classList.add('show');
@@ -180,18 +240,158 @@ var wd=[];for(var w=0;w<ss.length;w++){if(ss[w].f>0)wd.push(ss[w])}if(wd.length>
 
 /* ══════════ SKL GENERATION ══════════ */
 function loadSklData(){var cc=$('csel').value;if(!cc){$('sklC').innerHTML='<div class="crd"><div class="skl-info"><p>Pilih <b>Program Keahlian</b> terlebih dahulu.</p></div></div>';return}$('sp3').classList.add('show');$('sklC').innerHTML='';if(hasAPI()){apiGet({action:'getAllScores',classCode:cc}).then(function(rows){processSklData(cc,rows)}).catch(function(e){$('sklC').innerHTML='<div class="crd"><div class="empty"><p>⚠️ '+e.message+'</p></div></div>'}).finally(function(){$('sp3').classList.remove('show')})}else{var r=RNG[cc];if(!r){$('sp3').classList.remove('show');return}gviz('A'+r.s+':T'+r.e).then(function(rows){processSklData(cc,rows)}).catch(function(e){$('sklC').innerHTML='<div class="crd"><div class="empty"><p>⚠️ '+e.message+'</p></div></div>'}).finally(function(){$('sp3').classList.remove('show')})}}
+
 function processSklData(cc,rows){sklData=[];for(var i=0;i<rows.length;i++){var r=rows[i],nm=(r[0]||'').toString().trim();if(!nm)continue;var scores={};for(var j=0;j<SUBS.length;j++)scores[SUBS[j].k]=(r[SUBS[j].c-1]!=null&&String(r[SUBS[j].c-1]).trim()!=='')?String(r[SUBS[j].c-1]):'';sklData.push({nama:nm,ttl:r[1]||'',nis:String(r[2]||''),nisn:String(r[3]||''),prog:r[4]||'',scores:scores})}renderSklList(cc)}
-function renderSklList(cc){if(!sklData.length){$('sklC').innerHTML='<div class="crd"><div class="empty"><p>Tidak ada data siswa</p></div></div>';return}var h='<div class="crd"><div class="thead"><div class="thead-left"><span class="ttl">📜 Generate SKL — '+CLS[cc]+'</span><span class="tcnt">'+sklData.length+' Siswa</span></div></div><div class="skl-select-all"><input type="checkbox" class="skl-cb" id="sklAll" onchange="toggleSklAll(this)"><label for="sklAll">Pilih Semua</label></div><div style="padding:1rem 1.5rem"><div class="skl-grid">';for(var i=0;i<sklData.length;i++){var s=sklData[i],init=s.nama.split(' ').map(function(w){return w[0]}).join('').substring(0,2).toUpperCase(),cnt=0;for(var k in s.scores)if(s.scores[k])cnt++;h+='<div class="skl-card"><input type="checkbox" class="skl-cb skl-item-cb" data-idx="'+i+'"><div class="skl-av">'+init+'</div><div class="skl-det"><div class="skl-nm">'+escH(s.nama)+'</div><div class="skl-mt">NIS: '+escH(s.nis)+' · Nilai: '+cnt+'/'+SUBS.length+'</div></div><button class="skl-dl" onclick="generateSKL('+i+')">📄 SKL</button></div>'}h+='</div></div><div style="text-align:center;padding:1rem 2rem 1.5rem"><button class="abtn bskl" onclick="generateSelectedSKL()">📦 Generate SKL Terpilih</button></div></div>';$('sklC').innerHTML=h}
+
+function renderSklList(cc){if(!sklData.length){$('sklC').innerHTML='<div class="crd"><div class="empty"><p>Tidak ada data siswa</p></div></div>';return}
+var h='<div class="crd"><div class="thead"><div class="thead-left"><span class="ttl">📜 Generate SKL — '+escH(CLS[cc])+'</span><span class="tcnt">'+sklData.length+' Siswa</span></div></div>';
+h+='<div class="skl-select-all"><input type="checkbox" class="skl-cb" id="sklAll" onchange="toggleSklAll(this)"><label for="sklAll">Pilih Semua</label></div>';
+h+='<div style="padding:1rem 1.5rem"><div class="skl-grid">';
+for(var i=0;i<sklData.length;i++){var s=sklData[i],init=s.nama.split(' ').map(function(w){return w[0]}).join('').substring(0,2).toUpperCase(),cnt=0;for(var k in s.scores)if(s.scores[k])cnt++;
+h+='<div class="skl-card"><input type="checkbox" class="skl-cb skl-item-cb" data-idx="'+i+'">';
+h+='<div class="skl-av">'+init+'</div>';
+h+='<div class="skl-det"><div class="skl-nm" title="'+escH(s.nama)+'">'+escH(s.nama)+'</div><div class="skl-mt">NIS: '+escH(s.nis)+' · Nilai: '+cnt+'/'+SUBS.length+'</div></div>';
+h+='<div class="skl-actions"><button class="skl-dl skl-dl-alt" onclick="previewSKL('+i+')" title="Preview SKL">👁️ Preview</button>';
+h+='<button class="skl-dl" onclick="generateSKL('+i+')" title="Download SKL">📄 Download</button></div>';
+h+='</div>'}
+h+='</div></div>';
+h+='<div style="text-align:center;padding:1rem 2rem 1.5rem;display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap">';
+h+='<button class="abtn bskl" onclick="generateSelectedSKL()">📦 Generate SKL Terpilih</button>';
+h+='<button class="abtn bpr" onclick="generateAllSKL()">📥 Generate Semua SKL</button>';
+h+='</div></div>';
+$('sklC').innerHTML=h}
+
 function toggleSklAll(el){var cbs=document.querySelectorAll('.skl-item-cb');for(var i=0;i<cbs.length;i++)cbs[i].checked=el.checked}
-function generateSelectedSKL(){var cbs=document.querySelectorAll('.skl-item-cb:checked'),indices=[];for(var i=0;i<cbs.length;i++)indices.push(parseInt(cbs[i].getAttribute('data-idx')));if(!indices.length){toast('Pilih minimal 1 siswa!','err');return}if(indices.length===1){generateSKL(indices[0]);return}toast('Generating '+indices.length+' SKL...','');var idx=0;(function next(){if(idx>=indices.length){toast('Semua SKL berhasil di-generate! ✅','ok');return}generateSKL(indices[idx],true);idx++;setTimeout(next,600)})()}
-function generateSKL(index,silent){var s=sklData[index];if(!s){toast('Data tidak ditemukan','err');return}buildSKLDoc(s).then(function(blob){saveAs(blob,'SKL_'+s.nama.replace(/\s+/g,'_')+'.docx');if(!silent)toast('SKL '+s.nama+' berhasil di-download! ✅','ok')}).catch(function(e){console.error(e);toast('Gagal: '+e.message,'err')})}
+
+/* ── SKL Preview Modal ── */
+function previewSKL(index){
+  var s=sklData[index];if(!s)return toast('Data tidak ditemukan','err');
+  currentSklIndex=index;
+  var tgl=formatTgl();
+  var gA=[],gB=[];
+  for(var i=0;i<SUBS.length;i++){var sub=SUBS[i],val=s.scores[sub.k]||'';if(sub.g==='A')gA.push({name:sub.f,value:val});else gB.push({name:sub.f,value:val})}
+  var tot=0,cnt=0;for(var j=0;j<SUBS.length;j++){var v=parseFloat(s.scores[SUBS[j].k]);if(!isNaN(v)){tot+=v;cnt++}}var avg=cnt>0?(tot/cnt).toFixed(2):'0.00';
+
+  var h='<div class="skl-preview">';
+  h+='<div class="skl-kop">';
+  h+='<img src="https://iili.io/qdPnChb.png" alt="Logo Provinsi Maluku" class="skl-kop-logo">';
+  h+='<div class="skl-kop-text">';
+  h+='<p>PEMERINTAH PROVINSI MALUKU</p>';
+  h+='<p>DINAS PENDIDIKAN DAN KEBUDAYAAN</p>';
+  h+='<h4>SMK NEGERI 1 MALUKU TENGAH</h4>';
+  h+='<p style="font-size:10px">Jl. Sultan Hasanuddin, ☎ (0914) 21354 Kode Pos 97515</p>';
+  h+='<p style="font-size:10px">e-mail: smkn1malukutengah@gmail.com</p>';
+  h+='</div>';
+  h+='</div>';
+  h+='<hr class="skl-divider">';
+  h+='<div class="skl-title">SURAT KETERANGAN LULUS</div>';
+  h+='<div class="skl-nomor">Nomor: 421.5/     /2026</div>';
+  h+='<p style="text-align:justify;margin-bottom:12px">Yang bertandatangan di bawah ini Kepala Sekolah Menengah Kejuruan Negeri 1 Maluku Tengah Nomor Pokok Sekolah Nasional 60100166 Kabupaten Maluku Tengah Provinsi Maluku. Dengan ini menerangkan:</p>';
+  h+='<div class="skl-field"><span class="skl-flbl">Nama</span><span class="skl-fsep">:</span><span class="skl-fval">'+escH(s.nama)+'</span></div>';
+  h+='<div class="skl-field"><span class="skl-flbl">Tempat, Tanggal Lahir</span><span class="skl-fsep">:</span><span class="skl-fval">'+escH(s.ttl)+'</span></div>';
+  h+='<div class="skl-field"><span class="skl-flbl">Nomor Induk</span><span class="skl-fsep">:</span><span class="skl-fval">'+escH(s.nis)+'</span></div>';
+  h+='<div class="skl-field"><span class="skl-flbl">Nomor Induk Siswa Nasional</span><span class="skl-fsep">:</span><span class="skl-fval">'+escH(s.nisn)+'</span></div>';
+  h+='<div class="skl-field"><span class="skl-flbl">Program Keahlian</span><span class="skl-fsep">:</span><span class="skl-fval">'+escH(s.prog)+'</span></div>';
+  h+='<p style="text-align:justify;margin:16px 0 8px">Berdasarkan kriteria kelulusan peserta didik yang sudah ditetapkan, maka yang bersangkutan dinyatakan:</p>';
+  h+='<div class="skl-lulus">L U L U S</div>';
+  h+='<p style="margin:8px 0">Dengan hasil sebagai berikut:</p>';
+
+  h+='<table><thead><tr><th>No.</th><th>Mata Pelajaran</th><th>Nilai Ujian Sekolah</th></tr></thead><tbody>';
+  h+='<tr><td style="font-weight:700;text-align:left" colspan="2"><b>A. Kelompok Mata Pelajaran Umum</b></td><td></td></tr>';
+  for(var a=0;a<gA.length;a++){h+='<tr><td>'+(a+1)+'</td><td style="text-align:left">'+escH(gA[a].name)+'</td><td>'+(gA[a].value||'—')+'</td></tr>'}
+  h+='<tr><td style="font-weight:700;text-align:left" colspan="2"><b>B. Kelompok Mata Pelajaran Kejuruan</b></td><td></td></tr>';
+  for(var b=0;b<gB.length;b++){h+='<tr><td>'+(b+1)+'</td><td style="text-align:left">'+escH(gB[b].name)+'</td><td>'+(gB[b].value||'—')+'</td></tr>'}
+  h+='<tr><td>'+(gB.length+1)+'</td><td style="text-align:left;font-weight:700">Nilai Rata-Rata</td><td style="font-weight:700">'+avg+'</td></tr>';
+  h+='</tbody></table>';
+
+  h+='<p style="text-align:justify;margin:12px 0">Surat Keterangan ini bersifat sementara dan berlaku sampai diterbitkannya Ijazah untuk siswa yang bersangkutan.</p>';
+  h+='<p style="text-align:justify;margin-bottom:16px">Demikian Surat Keterangan ini diberikan agar dapat digunakan sebagaimana mestinya.</p>';
+  h+='<div class="skl-sign"><p>Maluku Tengah, '+tgl+'</p><p>Kepala Sekolah,</p><p class="skl-sign-name">SIANI LA JAMALUDIN, S.Pd.,M.Pd</p><p>NIP 19760515200801 1 023</p></div>';
+  h+='</div>';
+
+  $('sklModalBody').innerHTML=h;
+  $('sklModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closeSklModal(){
+  $('sklModal').classList.remove('show');
+  document.body.style.overflow='';
+  currentSklIndex=-1;
+}
+
+function downloadCurrentSKL(){
+  if(currentSklIndex<0)return;
+  generateSKL(currentSklIndex);
+}
+
+/* ── SKL Download Functions ── */
+function generateSelectedSKL(){
+  var cbs=document.querySelectorAll('.skl-item-cb:checked'),indices=[];
+  for(var i=0;i<cbs.length;i++)indices.push(parseInt(cbs[i].getAttribute('data-idx')));
+  if(!indices.length){toast('Pilih minimal 1 siswa!','err');return}
+  if(indices.length===1){generateSKL(indices[0]);return}
+  batchGenerateSKL(indices);
+}
+
+function generateAllSKL(){
+  if(!sklData.length){toast('Tidak ada data siswa!','err');return}
+  var indices=[];for(var i=0;i<sklData.length;i++)indices.push(i);
+  batchGenerateSKL(indices);
+}
+
+function batchGenerateSKL(indices){
+  var prog=$('sklBatchProgress');
+  prog.classList.add('show');
+  var total=indices.length,done=0;
+  $('sklBatchText').textContent='Generating SKL 0/'+total+'...';
+  $('sklBatchFill').style.width='0%';
+
+  function next(idx){
+    if(idx>=indices.length){
+      prog.classList.remove('show');
+      toast('Semua '+total+' SKL berhasil di-generate! ✅','ok');
+      return;
+    }
+    var s=sklData[indices[idx]];
+    buildSKLDoc(s).then(function(blob){
+      saveAs(blob,'SKL_'+s.nama.replace(/\s+/g,'_')+'.docx');
+      done++;
+      var pct=Math.round(done/total*100);
+      $('sklBatchText').textContent='Generating SKL '+done+'/'+total+'...';
+      $('sklBatchFill').style.width=pct+'%';
+      setTimeout(function(){next(idx+1)},500);
+    }).catch(function(e){
+      console.error('Gagal generate SKL untuk '+s.nama+':',e);
+      done++;
+      $('sklBatchText').textContent='Generating SKL '+done+'/'+total+' (error: '+s.nama+')';
+      $('sklBatchFill').style.width=Math.round(done/total*100)+'%';
+      setTimeout(function(){next(idx+1)},500);
+    });
+  }
+  next(0);
+}
+
+function generateSKL(index,silent){
+  var s=sklData[index];
+  if(!s){toast('Data tidak ditemukan','err');return}
+  buildSKLDoc(s).then(function(blob){
+    saveAs(blob,'SKL_'+s.nama.replace(/\s+/g,'_')+'.docx');
+    if(!silent)toast('SKL '+s.nama+' berhasil di-download! ✅','ok');
+  }).catch(function(e){
+    console.error(e);
+    toast('Gagal generate SKL: '+e.message,'err');
+  });
+}
 
 function buildSKLDoc(stu){
   var D=docx,tgl=formatTgl();
   var gA=[],gB=[];for(var i=0;i<SUBS.length;i++){var sub=SUBS[i],val=stu.scores[sub.k]||'';if(sub.g==='A')gA.push({name:sub.f,value:val});else gB.push({name:sub.f,value:val})}
   var tot=0,cnt=0;for(var j=0;j<SUBS.length;j++){var v=parseFloat(stu.scores[SUBS[j].k]);if(!isNaN(v)){tot+=v;cnt++}}var avg=cnt>0?(tot/cnt).toFixed(2):'0.00';
   var brd={style:D.BorderStyle.SINGLE,size:1,color:'000000'},bds={top:brd,bottom:brd,left:brd,right:brd},cm={top:40,bottom:40,left:80,right:80};
+
   function tc(text,opts){opts=opts||{};return new D.TableCell({borders:bds,width:{size:opts.w||1000,type:D.WidthType.DXA},margins:cm,verticalAlign:D.VerticalAlign.CENTER,children:[new D.Paragraph({alignment:opts.a||D.AlignmentType.LEFT,spacing:{before:20,after:20},children:[new D.TextRun({text:String(text),size:20,font:'Times New Roman',bold:!!opts.b})]})]})}
+
   var trows=[];
   trows.push(new D.TableRow({tableHeader:true,children:[tc('No.',{w:780,a:D.AlignmentType.CENTER,b:1}),tc('Mata Pelajaran',{w:5490,a:D.AlignmentType.CENTER,b:1}),tc('Nilai Ujian Sekolah',{w:1365,a:D.AlignmentType.CENTER,b:1})]}));
   trows.push(new D.TableRow({children:[tc('A.',{w:780,b:1}),tc('Kelompok Mata Pelajaran Umum',{w:5490,b:1}),tc('',{w:1365})]}));
@@ -204,14 +404,50 @@ function buildSKLDoc(stu){
   function cp(text,opts){opts=opts||{};return new D.Paragraph({alignment:opts.a||D.AlignmentType.CENTER,spacing:{before:opts.sb||0,after:opts.sa||0,line:240},children:[new D.TextRun({text:text,size:opts.sz||22,font:'Times New Roman',bold:!!opts.b,underline:opts.u?{type:D.UnderlineType.SINGLE}:undefined})]})}
 
   var ch=[];
-  if(logoBytes){ch.push(new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{after:0},children:[new D.ImageRun({type:'png',data:logoBytes,transformation:{width:65,height:74},floating:{horizontalPosition:{relative:D.HorizontalPositionRelativeFrom.COLUMN,offset:457200},verticalPosition:{relative:D.VerticalPositionRelativeFrom.PARAGRAPH,offset:114300},behindDocument:true},altText:{title:'Logo',description:'Logo SMK',name:'logo'}})]}))}
-  ch.push(cp('PEMERINTAH PROVINSI MALUKU'),cp('DINAS PENDIDIKAN DAN KEBUDAYAAN'),cp('SMK NEGERI 1 MALUKU TENGAH',{sz:28,b:1}),cp('Jl. Sultan Hasanuddin, \u2706 (0914) 21354 Kode Pos 97515',{sz:20}),cp('e-mail: smkn1malukutengah@gmail.com',{sz:20}),new D.Paragraph({spacing:{before:120,after:0},border:{bottom:{style:D.BorderStyle.SINGLE,size:6,color:'000000',space:1}},children:[]}),cp('SURAT KETERANGAN LULUS',{sz:22,b:1,u:1,sb:240}),cp('Nomor: 421.5/     /2025',{sz:20,sb:80,sa:200}),new D.Paragraph({alignment:D.AlignmentType.JUSTIFIED,spacing:{before:120,after:120,line:276},children:[new D.TextRun({text:'Yang bertandatangan di bawah ini Kepala Sekolah Menengah Kejuruan Negeri 1 Maluku Tengah Nomor Pokok Sekolah Nasional 60100166 Kabupaten Maluku Tengah Provinsi Maluku. Dengan ini menerangkan:',size:20,font:'Times New Roman'})]}),fl('Nama',stu.nama),fl('Tempat, Tanggal Lahir',stu.ttl),fl('Nomor Induk',stu.nis),fl('Nomor Induk Siswa Nasional',stu.nisn),fl('Program Keahlian',stu.prog),new D.Paragraph({alignment:D.AlignmentType.JUSTIFIED,spacing:{before:200,after:60,line:276},children:[new D.TextRun({text:'Berdasarkan kriteria kelulusan peserta didik yang sudah ditetapkan, maka yang bersangkutan dinyatakan:',size:20,font:'Times New Roman'})]}),new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:120,after:120},children:[new D.TextRun({text:'Lulus',size:28,font:'Times New Roman',bold:true})]}),new D.Paragraph({spacing:{before:80,after:120},children:[new D.TextRun({text:'Dengan hasil sebagai berikut:',size:20,font:'Times New Roman'})]}));
+
+  // ── KOP SURAT with logo on the left using a table ──
+  var kopTextChildren=[
+    new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:0,after:0,line:240},children:[new D.TextRun({text:'PEMERINTAH PROVINSI MALUKU',size:20,font:'Times New Roman'})]}),
+    new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:0,after:0,line:240},children:[new D.TextRun({text:'DINAS PENDIDIKAN DAN KEBUDAYAAN',size:20,font:'Times New Roman'})]}),
+    new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:0,after:0,line:240},children:[new D.TextRun({text:'SMK NEGERI 1 MALUKU TENGAH',size:28,font:'Times New Roman',bold:true})]}),
+    new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:0,after:0,line:240},children:[new D.TextRun({text:'Jl. Sultan Hasanuddin, \u2706 (0914) 21354 Kode Pos 97515',size:18,font:'Times New Roman'})]}),
+    new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:0,after:0,line:240},children:[new D.TextRun({text:'e-mail: smkn1malukutengah@gmail.com',size:18,font:'Times New Roman'})]})
+  ];
+  var noBorder={style:D.BorderStyle.NONE,size:0,color:'FFFFFF'};
+  var noBorders={top:noBorder,bottom:noBorder,left:noBorder,right:noBorder};
+
+  var logoCell;
+  if(logoBytes){
+    logoCell=new D.TableCell({borders:noBorders,width:{size:1400,type:D.WidthType.DXA},verticalAlign:D.VerticalAlign.CENTER,margins:{top:0,bottom:0,left:0,right:80},children:[new D.Paragraph({alignment:D.AlignmentType.CENTER,children:[new D.ImageRun({type:'png',data:logoBytes,transformation:{width:60,height:68},altText:{title:'Logo',description:'Logo SMK',name:'logo'}})]})]});
+  } else {
+    logoCell=new D.TableCell({borders:noBorders,width:{size:1400,type:D.WidthType.DXA},children:[new D.Paragraph({children:[]})]});
+  }
+
+  var textCell=new D.TableCell({borders:noBorders,width:{size:7235,type:D.WidthType.DXA},verticalAlign:D.VerticalAlign.CENTER,children:kopTextChildren});
+
+  ch.push(new D.Table({width:{size:8635,type:D.WidthType.DXA},columnWidths:[1400,7235],rows:[new D.TableRow({children:[logoCell,textCell]})],borders:{top:noBorder,bottom:noBorder,left:noBorder,right:noBorder,insideHorizontal:noBorder,insideVertical:noBorder}}));
+
+  // ── Garis pembatas kop ──
+  ch.push(new D.Paragraph({spacing:{before:120,after:0},border:{bottom:{style:D.BorderStyle.SINGLE,size:6,color:'000000',space:1}},children:[]}));
+
+  ch.push(cp('SURAT KETERANGAN LULUS',{sz:22,b:1,u:1,sb:240}),cp('Nomor: 421.5/     /2026',{sz:20,sb:80,sa:200}),new D.Paragraph({alignment:D.AlignmentType.JUSTIFIED,spacing:{before:120,after:120,line:276},children:[new D.TextRun({text:'Yang bertandatangan di bawah ini Kepala Sekolah Menengah Kejuruan Negeri 1 Maluku Tengah Nomor Pokok Sekolah Nasional 60100166 Kabupaten Maluku Tengah Provinsi Maluku. Dengan ini menerangkan:',size:20,font:'Times New Roman'})]}),fl('Nama',stu.nama),fl('Tempat, Tanggal Lahir',stu.ttl),fl('Nomor Induk',stu.nis),fl('Nomor Induk Siswa Nasional',stu.nisn),fl('Program Keahlian',stu.prog),new D.Paragraph({alignment:D.AlignmentType.JUSTIFIED,spacing:{before:200,after:60,line:276},children:[new D.TextRun({text:'Berdasarkan kriteria kelulusan peserta didik yang sudah ditetapkan, maka yang bersangkutan dinyatakan:',size:20,font:'Times New Roman'})]}),new D.Paragraph({alignment:D.AlignmentType.CENTER,spacing:{before:120,after:120},children:[new D.TextRun({text:'Lulus',size:28,font:'Times New Roman',bold:true})]}),new D.Paragraph({spacing:{before:80,after:120},children:[new D.TextRun({text:'Dengan hasil sebagai berikut:',size:20,font:'Times New Roman'})]}));
+
   ch.push(new D.Table({width:{size:7635,type:D.WidthType.DXA},columnWidths:[780,5490,1365],alignment:D.AlignmentType.CENTER,rows:trows}));
+
   ch.push(new D.Paragraph({spacing:{before:200,after:60},alignment:D.AlignmentType.JUSTIFIED,children:[new D.TextRun({text:'Surat Keterangan ini bersifat sementara dan berlaku sampai diterbitkannya Ijazah untuk siswa yang bersangkutan.',size:20,font:'Times New Roman'})]}),new D.Paragraph({spacing:{before:60,after:200},alignment:D.AlignmentType.JUSTIFIED,children:[new D.TextRun({text:'Demikian Surat Keterangan ini diberikan agar dapat digunakan sebagaimana mestinya.',size:20,font:'Times New Roman'})]}),new D.Paragraph({alignment:D.AlignmentType.RIGHT,spacing:{before:120,after:0},indent:{left:5000},children:[new D.TextRun({text:'Maluku Tengah, '+tgl,size:20,font:'Times New Roman'})]}),new D.Paragraph({alignment:D.AlignmentType.RIGHT,spacing:{before:0,after:0},indent:{left:5000},children:[new D.TextRun({text:'Kepala Sekolah,',size:20,font:'Times New Roman'})]}),new D.Paragraph({spacing:{before:0,after:0},children:[]}),new D.Paragraph({spacing:{before:0,after:0},children:[]}),new D.Paragraph({spacing:{before:0,after:0},children:[]}),new D.Paragraph({alignment:D.AlignmentType.RIGHT,spacing:{before:0,after:0},indent:{left:5000},children:[new D.TextRun({text:'SIANI LA JAMALUDIN, S.Pd.,M.Pd',size:20,font:'Times New Roman',bold:true,underline:{type:D.UnderlineType.SINGLE}})]}),new D.Paragraph({alignment:D.AlignmentType.RIGHT,spacing:{before:0},indent:{left:5000},children:[new D.TextRun({text:'NIP 19760515200801 1 023',size:20,font:'Times New Roman'})]}));
+
   return D.Packer.toBlob(new D.Document({sections:[{properties:{page:{size:{width:11906,height:16838},margin:{top:1134,right:1134,bottom:1134,left:1418}}},children:ch}]}));
 }
 
+/* ── Event Listeners ── */
 window.addEventListener('beforeunload',function(e){if(hasChanges&&editMode){e.preventDefault();e.returnValue=''}});
+
+// Close modal on overlay click
+document.addEventListener('click',function(e){if(e.target.id==='sklModal'){closeSklModal()}});
+
+// Close modal on Escape key
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('sklModal').classList.contains('show')){closeSklModal()}});
+
 document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
